@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Geng Books</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo"><h1>Geng Book Shop</h1></div>
+        <ul class="menu">
+            <li><a href="" class="active">Home</a></li>
+            <li><a href="">New Arrivals</a></li>
+            <li><a href="">IT Books</a></li>
+            <li><a href="">Account</a></li>
+            <li><a href="addToCart.html"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+            <button id="darkModeToggle" class="dark-mode-toggle">
+                <i class="fas fa-moon"></i>
+            </button>
+        </ul> 
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>Welcome to Geng Book Shop</h2>
+        <p>Your one-stop shop for the best books in town!</p>
+    </section>
+
+    <!-- Product Carousel -->
+    <section class="product-carousel">
+        <h2>Featured Books</h2>
+        <div class="carousel">
+            <div class="product" id="book1" onclick="showModal(0)">
+                <img src="image/book1.jpg" alt="Book 1">
+                <p>The Ritual</p>
+                <p>$10.99</p>
+            </div>
+            <div class="product" id="book2" onclick="showModal(1)">
+                <img src="image/book2.jpeg" alt="Book 2">
+                <p>Skittering</p>
+                <p>$12.99</p>
+            </div>
+            <div class="product" id="book3" onclick="showModal(2)">
+                <img src="image/book3.jpg" alt="Book 3">
+                <p>Horror Stories</p>
+                <p>$15.99</p>
+            </div>
+            <div class="product" id="book4" onclick="showModal(3)">
+                <img src="image/book4.jpg" alt="Book 4">
+                <p>Fundamentals of IT</p>
+                <p>$9.99</p>
+            </div>
+            <div class="product" id="book5" onclick="showModal(4)">
+                <img src="image/book5.jpg" alt="Book 5">
+                <p>IT Workbook</p>
+                <p>$11.99</p>
+            </div>
+            <div class="product" id="book6" onclick="showModal(5)">
+                <img src="image/book6.jpg" alt="Book 6">
+                <p>Fundaments of InfoTech</p>
+                <p>$13.99</p>
+            </div>
+            <div class="product" id="book7" onclick="showModal(6)">
+                <img src="image/OIP.jpg" alt="Book 7">
+                <p>Hunger Games</p>
+                <p>$14.99</p>
+            </div>
+            <div class="product" id="book8" onclick="showModal(7)">
+                <img src="image/OIP (1).jpg" alt="Book 8">
+                <p>Catching Fire</p>
+                <p>$18.99</p>
+            </div>
+            <div class="product" id="book9" onclick="showModal(8)">
+                <img src="image/oip4.jpg" alt="Book 9">
+                <p>MockingJay</p>
+                <p>$19.99</p>
+            </div>
+            <div class="product" id="book10" onclick="showModal(9)">
+                <img src="image/OIP (2).jpg" alt="Book 10">
+                <p>ACOTAR</p>
+                <p>$20.99</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="product-carousel">
+        <h2>More Books</h2>
+        <div class="carousel">
+            <div class="product" id="book1" onclick="showModal(0)">
+                <img src="image/book1.jpg" alt="Book 1">
+                <p>The Ritual</p>
+                <p>$10.99</p>
+            </div>
+            <div class="product" id="book2" onclick="showModal(1)">
+                <img src="image/book2.jpeg" alt="Book 2">
+                <p>Skittering</p>
+                <p>$12.99</p>
+            </div>
+            <div class="product" id="book3" onclick="showModal(2)">
+                <img src="image/book3.jpg" alt="Book 3">
+                <p>Horror Stories</p>
+                <p>$15.99</p>
+            </div>
+            <div class="product" id="book4" onclick="showModal(2)">
+                <img src="image/H1.jpg"alt="Book 4">
+                <p>Harry Potter and the Socerer's Stone</p>
+                <p>$9.99</p>
+            </div>
+            <div class="product" id="book5" onclick="showModal(3)">
+                <img src="image/h4.jpg"alt="Book 5">
+                <p>Harry Potter and the Philosopher's Stone</p>
+                <p>$11.99</p>
+            </div>
+            <div class="product" id="book6" onclick="showModal(5)">
+                <img src="image/h2.jpg" alt="Book 6">
+                <p>Harry Potter and the Deathly Hallows</p>
+                <p>$13.99</p>
+            </div>
+            <div class="product" id="book7" onclick="showModal(6)">
+                <img src="image/t1.jpg" alt="Book 7">
+                <p>Twilight I</p>
+                <p>$14.99</p>
+            </div>
+            <div class="product" id="book8" onclick="showModal(7)">
+                <img src="image/t2.jpg" alt="Book 8">
+                <p>Twilight II</p>
+                <p>$18.99</p>
+            </div>
+            <div class="product" id="book9" onclick="showModal(8)">
+                <img src="image/w1.jpg" alt="Book 9">
+                <p>The Wheel of Time: The Great Hunt</p>
+                <p>$19.99</p>
+            </div>
+            <div class="product" id="book10" onclick="showModal(9)">          
+                <img src="image/w2.jpg" alt="Book 10">
+                <p>The Wheel of Time: The Shadow Rising</p>
+                <p>$20.99</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="bookModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modalImage" alt="Book Description">
+            <h2 id="modalTitle"></h2>
+            <p id="modalAuthor"></p>
+            <p id="modalPrice"></p>
+            <p id="modalCategory"></p>
+            <button id="addToCartBtn" onclick="addToCart()">Add to Cart</button>
+        </div>
+    </div>
+    <img id="modalImage" alt="Book Description">
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Geng Book Shop. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        let cart = [];
+        const gengBookShop = {
+            books:  [
+            { title: "The Ritual", price: 10.99, image: "image/book1.jpg" },
+            { title: "Skittering", price: 12.99, image: "image/book2.jpeg" },
+            { title: "Horror Stories", price: 15.99, image: "image/book3.jpg" },
+            { title: "Fundamentals of IT", price: 9.99, image: "image/book4.jpg" },
+            { title: "IT Workbook   ", price: 11.99, image: "image/book5.jpg" },
+            { title: "Fundamentals of InfoTech", price: 13.99, image: "image/book6.jpg" },
+            { title: "Hunger Games", price: 14.99, image: "image/OIP.jpg" },
+            { title: "Catching Fire", price: 18.99, image: "image/OIP (1).jpg" },
+            { title: "Mockingjay", price: 19.99, image: "image/oip4.jpg" },
+            { title: "ACOTAR", price: 20.99, image: "image/OIP (2).jpg" },
+            { title: "The Ritual", price: 10.99, image: "image/book1.jpg" },
+            { title: "Skittering", price: 12.99, image: "image/book2.jpeg" },
+            { title: "Horror Stories", price: 15.99, image: "image/book3.jpg" },
+            { title: "Harry Potter and the Socerer's Stone", price: 9.99, image: "image/H1.jpg" },
+            { title: "Harry Potter and the Philosopher's Stone", price: 11.99, image: "image/h4.jpg" },
+            { title: "Harry Potter and the Deathly Hallows", price: 13.99, image: "image/h2.jpg" },
+            { title: "Twilight I", price: 14.99, image: "image/t1.jpg" },
+            { title: "Twilight II", price: 18.99, image: "image/t2.jpg" },
+            { title: "The Wheel of Time: The Great Hunt", price: 19.99, image: "image/w1.jpg" },
+            { title: "The Wheel of Time: The Shadow Rising", price: 50.99, image: "image/w2.jpg" }
+       
+            
+            
+        ]
+        };
+        
+    
+        document.addEventListener("DOMContentLoaded", () => {
+            // Ensure the modal is hidden on page load
+            document.getElementById("bookModal").style.display = "none";
+    
+            // Dynamically assign click events to every book
+            const products = document.querySelectorAll(".product");
+            products.forEach((product, index) => {
+                product.addEventListener("click", () => showModal(index));
+            });
+        });
+    
+        function showModal(index) {
+            const book = gengBookShop.books[index];
+            document.getElementById('modalTitle').innerText = book.title;
+            document.getElementById('modalAuthor').innerText = `by ${book.author}`;
+            document.getElementById('modalPrice').innerText = `$${book.price.toFixed(2)}`;
+            document.getElementById('modalCategory').innerText = `Category: ${book.category}`;
+            document.getElementById('modalImage').src = book.image;
+            document.getElementById('bookModal').style.display = "flex"; // Show modal
+        }
+    
+        function addToCart() {
+            const bookTitle = document.getElementById('modalTitle').innerText;
+            cart.push(bookTitle);
+            alert(`${bookTitle} added to cart!`);
+            closeModal(); // Close the modal after adding to the cart
+        }
+        function addToCart() {
+    const bookTitle = document.getElementById('modalTitle').innerText;
+    const bookPrice = parseFloat(document.getElementById('modalPrice').innerText.replace('$', ''));
+    const bookImage = document.getElementById('modalImage').src;
+
+    // Get current cart from localStorage or initialize an empty array
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Check if the book is already in the cart
+    const existingBook = cart.find(item => item.title === bookTitle);
+    if (existingBook) {
+        existingBook.quantity += 1; // Increase quantity if the book already exists in the cart
+    } else {
+        cart.push({
+            title: bookTitle,
+            price: bookPrice,
+            image: bookImage,
+            quantity: 1
+        });
+    }
+
+    // Save updated cart back to localStorage
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    alert(`${bookTitle} added to cart!`);
+    closeModal(); // Close the modal
+}
+    
+        function closeModal() {
+            document.getElementById('bookModal').style.display = "none";
+        }
+    
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        darkModeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+        });
+    </script>
+    
+    </script>
+</body>
+</html>

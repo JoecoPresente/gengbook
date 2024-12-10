@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible=IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Your Cart - Geng Books</title>
+    <style>
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+    
+        .modal-content {
+            background-color: white;
+            margin: 15% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 500px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    
+        .modal-header, .modal-body, .modal-footer {
+            margin-bottom: 15px;
+        }
+    
+        .modal-footer button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    
+        .close {
+            float: right;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    
+        /* Cart Item Styles */
+        
+        .cart-item {
+            display: block;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 15px;
+            text-align: center;
+            position: relative;
+        }
+    
+        .book-image {
+            width: 120px;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    
+        .book-details {
+            text-align: center;
+            display: inline-block;
+            margin-top: 10px;
+        }
+    
+        .book-details p {
+            margin: 5px 0;
+        }
+    
+        .book-details label {
+            font-weight: bold;
+        }
+    
+        .book-details input[type="number"] {
+            width: 50px;
+            padding: 5px;
+            font-size: 16px;
+            margin-top: 5px;
+        }
+    
+        /* Trash Button */
+        .trash-btn {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            position: absolute;
+            right: 10px; /* 10px from the quantity input */
+            top: 25px;
+        }
+    
+        .trash-btn:hover {
+            background-color: #c82333;
+        }
+    
+        /* Navbar Styles */
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+    
+        .navbar .logo h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+    
+        .navbar .menu {
+            list-style: none;
+            padding: 0;
+        }
+    
+        .navbar .menu li {
+            display: inline;
+            margin: 0 15px;
+        }
+    
+        .navbar .menu a {
+            color: white;
+            text-decoration: none;
+        }
+    
+        /* Cart Section */
+        .cart-section {
+            text-align: center;
+            margin-top: 30px;
+        }
+    
+        .cart-section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+    
+        #checkoutBtn {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    
+        #checkoutBtn:hover {
+            background-color: #218838;
+        }
+    
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 30px;
+        }
+    </style>
+    
+    
+    
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo"><h1>Geng Book Shop</h1></div>
+        <ul class="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="">Account</a></li>
+        </ul> 
+    </nav>
+
+    <!-- Cart Section -->
+    <section class="cart-section">
+        <h2>Your Shopping Cart</h2>
+        <div id="cartItemsContainer">
+            <!-- Cart items will be displayed here -->
+           
+        </div>
+        <div id="totalPriceContainer">
+            <p><strong>Total Price: $<span id="totalPrice">0.00</span></strong></p>
+        </div>
+       <div class="cart-item">
+        <button id="checkoutBtn">Checkout</button>
+      
+    </div>
+</div>
+<div id="cartItemsContainer">
+    <!-- Cart items will be displayed here -->
+    
+</div>
+
+    </section>
+
+    
+<!-- Checkout Modal -->
+<div id="checkoutModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <div class="modal-header">
+            
+        </div>
+        <div class="modal-body">
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Your Name" required><br><br>
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" placeholder="Your Phone Number" required><br><br>
+            <label for="address">Address:</label>
+            <textarea id="address" placeholder="Your Address" required></textarea><br><br>
+            <p>Shipping Fee: $10.00</p>
+            <p><strong>Total (including shipping): $<span id="finalTotal">0.00</span></strong></p>
+        </div>
+        <div class="modal-footer">
+            
+        </div>
+    </div>
+</div>
+
+
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Geng Book Shop. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+     // Function to get cart items from localStorage
+function getCartItems() {
+    return JSON.parse(localStorage.getItem("cart")) || [];
+}
+
+// Function to update the quantity of an item in the cart
+function updateQuantity(item, newQuantity) {
+    const cartItems = getCartItems();
+    const updatedCart = cartItems.map(cartItem => {
+        if (cartItem.title === item.title) {
+            cartItem.quantity = newQuantity; // Update the quantity
+        }
+        return cartItem;
+    });
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+    displayCart(); // Re-render the cart after updating quantity
+}
+
+// Function to calculate total price
+function calculateTotalPrice() {
+    const cartItems = getCartItems();
+    return cartItems.reduce((total, item) => total + item.price * (item.quantity || 1), 0);
+}
+
+// Function to display the cart and update total price
+function displayCart() {
+    const cartItems = getCartItems();
+    const cartItemsContainer = document.getElementById("cartItemsContainer");
+    const totalPriceElement = document.getElementById("totalPrice");
+    let totalPrice = 0;
+
+    cartItemsContainer.innerHTML = ""; // Clear the container before adding items
+
+    cartItems.forEach((item, index) => {
+        const cartItemDiv = document.createElement("div");
+        cartItemDiv.classList.add("cart-item");
+
+        // Book Image
+        const bookImage = document.createElement("img");
+        bookImage.src = item.image || "default-image.jpg"; // Use default image if none is provided
+        bookImage.alt = item.title;
+        bookImage.classList.add("book-image");
+        cartItemDiv.appendChild(bookImage);
+
+        // Book Details
+        const bookDetailsDiv = document.createElement("div");
+        bookDetailsDiv.classList.add("book-details");
+
+        const bookTitle = document.createElement("p");
+        bookTitle.innerText = item.title;
+        bookDetailsDiv.appendChild(bookTitle);
+
+        const bookPrice = document.createElement("p");
+        bookPrice.innerText = `Price: $${item.price.toFixed(2)}`;
+        bookDetailsDiv.appendChild(bookPrice);
+
+        const quantityLabel = document.createElement("label");
+        quantityLabel.innerText = "Quantity: ";
+        bookDetailsDiv.appendChild(quantityLabel);
+
+        const quantityInput = document.createElement("input");
+        quantityInput.type = "number";
+        quantityInput.value = item.quantity || 1;
+        quantityInput.min = 1;
+        quantityInput.addEventListener("input", () => {
+            const newQuantity = parseInt(quantityInput.value);
+            if (newQuantity > 0) {
+                updateQuantity(item, newQuantity); // Update quantity when changed
+            }
+        });
+        bookDetailsDiv.appendChild(quantityInput);
+
+        // Trash button to remove item
+        const trashButton = document.createElement("button");
+        trashButton.classList.add("trash-btn");
+        trashButton.innerHTML = '<i class="fas fa-trash"></i>'; // Trash icon
+        trashButton.addEventListener("click", () => {
+            removeItemFromCart(index); // Pass the index to remove the correct item
+        });
+        bookDetailsDiv.appendChild(trashButton);
+
+        // Append book details to the cart item
+        cartItemDiv.appendChild(bookDetailsDiv);
+
+        // Update total price calculation
+        totalPrice += item.price * (item.quantity || 1);
+
+        // Append the cart item div to the container
+        cartItemsContainer.appendChild(cartItemDiv);
+    });
+
+    // Update the total price on the page
+    totalPriceElement.innerText = totalPrice.toFixed(2);
+}
+
+// Function to remove an item from the cart
+function removeItemFromCart(index) {
+    const cartItems = getCartItems();
+    cartItems.splice(index, 1); // Remove item at the specified index
+    localStorage.setItem("cart", JSON.stringify(cartItems));
+    displayCart(); // Re-render the cart
+}
+
+// Function to handle checkout
+function handleCheckout() {
+    const totalPrice = calculateTotalPrice();
+    if (totalPrice > 0) {
+        alert(`Your total is $${totalPrice.toFixed(2)}. Proceed to checkout.`);
+    } else {
+        alert("Your cart is empty! Please add items to your cart.");
+    }
+}
+
+// Event listener for the checkout button
+document.getElementById("checkoutBtn").addEventListener("click", handleCheckout);
+
+// Initialize the cart display on page load
+window.onload = displayCart;
+
+
+    </script>
+
+</body>
+</html>
